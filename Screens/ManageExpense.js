@@ -5,7 +5,7 @@ import { ExpensesContext } from '../Context/ManageExpenseContext';
 import ExpenseTextEdit from '../Components/UI/ExpenseTextEdit';
 import AddExpense from './AddExpense';
 
-function ManageExpense({ route }) {
+function ManageExpense({ route, navigation }) {
     const expense = route.params?.expense;
     const [enteredDescription, setEnteredDescription] = useState(
         expense ? expense.description : ''
@@ -26,11 +26,13 @@ function ManageExpense({ route }) {
                 date: new Date("2026-02-23"),
             }             // second argument (data)
         );
+        navigation.pop();
     }
     function DeleteExpenseHandler() {
         expensesCtx.deleteExpense(
             expense.id,   // first argument (id)
         );
+        navigation.pop();
     }
     if (expense) {
         return (

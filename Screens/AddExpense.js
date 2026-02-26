@@ -1,9 +1,11 @@
 import { View, StyleSheet } from 'react-native';
 import { useState, useContext } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import ExpenseTextEdit from '../Components/UI/ExpenseTextEdit';
 import ExpenseButton from '../Components/UI/ExpenseButton';
 import { ExpensesContext } from '../Context/ManageExpenseContext';
 function AddExpense() {
+    const navigation = useNavigation();
     const expensesCtx = useContext(ExpensesContext);
     const [enteredDescription, setEnteredDescription] = useState('');
 
@@ -15,6 +17,7 @@ function AddExpense() {
             amount: +enteredAmount,
             date: new Date("2026-02-23"),
         });
+        navigation.pop();
     }
     return (
         <View style={styles.container}>
