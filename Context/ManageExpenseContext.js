@@ -1,5 +1,4 @@
 import { createContext, useReducer } from "react";
-import DUMMYEXPENSES from "../DummyData/DummyData";
 
 export const ExpensesContext = createContext({
     expenses: [],
