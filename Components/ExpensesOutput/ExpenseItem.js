@@ -17,7 +17,7 @@ function ExpenseItem({ description, amount, date, onPress }) {
                         {description}
                     </Text>
                     <Text style={styles.textBase}>
-                        {getFormattedDate(date)}
+                        {getFormattedDate(new Date(date))}
                     </Text>
                 </View>
 
